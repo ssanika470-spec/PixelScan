@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelScan | Digital Forensics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">P</span>
+            PixelScan
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it works</a>
+        </nav>
+
+        <a href="#inspect" class="nav-button">Inspect a file</a>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero container" id="home">
+
+            <div class="hero-content">
+                <p class="eyebrow">DIGITAL FORENSICS, SIMPLIFIED</p>
+
+                <h1>
+                    Look closer.<br>
+                    <span>Think deeper.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Digital content can hide more than meets the eye.
+                    PixelScan aims to help examine images, videos,
+                    audio and documents for signs of possible manipulation.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#inspect" class="primary-button">
+                        Inspect a file
+                    </a>
+
+                    <a href="#how-it-works" class="secondary-button">
+                        How it works
+                    </a>
+                </div>
+
+                <p class="small-note">
+                    Simple file inspection. Clear, understandable results.
+                </p>
+            </div>
+
+            <!-- File inspection panel -->
+            <div class="inspection-panel" id="inspect">
+
+                <div class="panel-header">
+                    <span>PIXELSCAN</span>
+                    <span class="panel-label">FILE INSPECTION</span>
+                </div>
+
+                <div class="upload-area">
+                    <div class="upload-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="1.8"
+                             stroke-linecap="round" stroke-linejoin="round"
+                             aria-hidden="true">
+                            <path d="M12 16V4"></path>
+                            <path d="m7 9 5-5 5 5"></path>
+                            <path d="M20 16.5v2A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-2"></path>
+                        </svg>
+                    </div>
+
+                    <h2>Select a file to inspect</h2>
+
+                    <p>
+                        Choose an image, video, audio file or document
+                        from your device.
+                    </p>
+
+                    <label for="fileInput" class="file-button">
+                        Choose a file
+                    </label>
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt"
+                    >
+
+                    <p class="file-note">File selection only · No upload to a server</p>
+                    <p id="fileName" class="file-name" aria-live="polite">
+                    </p>
+                </div>
+
+                <div class="supported-formats">
+                    <div>
+                        <span class="format-icon image-icon">IMG</span>
+                        <span>Images</span>
+                    </div>
+
+                    <div>
+                        <span class="format-icon video-icon">VID</span>
+                        <span>Video</span>
+                    </div>
+
+                    <div>
+                        <span class="format-icon audio-icon">AUD</span>
+                        <span>Audio</span>
+                    </div>
+
+                    <div>
+                        <span class="format-icon doc-icon">DOC</span>
+                        <span>Documents</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Features section -->
+        <section class="features-section" id="features">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">WHAT PIXELSCAN EXPLORES</p>
+                    <h2>Different formats. <span>One purpose.</span></h2>
+                    <p>
+                        A single place to examine different types of digital content.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+
+                    <article class="feature-card">
+                        <span class="feature-number">01</span>
+                        <h3>Image inspection</h3>
+                        <p>
+                            Explore image properties and potential signs
+                            of editing or manipulation.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <span class="feature-number">02</span>
+                        <h3>Video inspection</h3>
+                        <p>
+                            Examine video properties and investigate
+                            possible inconsistencies across frames.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <span class="feature-number">03</span>
+                        <h3>Audio inspection</h3>
+                        <p>
+                            Review audio properties and explore
+                            potential irregularities in recordings.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <span class="feature-number">04</span>
+                        <h3>Document inspection</h3>
+                        <p>
+                            Review document metadata and look for
+                            properties that may need further examination.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="workflow-section container" id="how-it-works">
+
+            <div class="workflow-intro">
+                <p class="eyebrow">HOW IT WORKS</p>
+                <h2>A closer look at <span>digital evidence.</span></h2>
+
+                <p>
+                    PixelScan is designed around a straightforward process:
+                    select digital content, examine available evidence,
+                    and understand the findings.
+                </p>
+            </div>
+
+            <div class="workflow-steps">
+
+                <div class="workflow-step">
+                    <span class="step-number">1</span>
+                    <div>
+                        <h3>Select a file</h3>
+                        <p>Choose the digital content you want to examine.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <span class="step-number">2</span>
+                    <div>
+                        <h3>Examine the evidence</h3>
+                        <p>
+                            Review file properties and, when implemented,
+                            potential signs of manipulation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <span class="step-number">3</span>
+                    <div>
+                        <h3>Review the findings</h3>
+                        <p>
+                            Understand the observations and their limitations.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Closing section -->
+        <section class="closing-section container">
+            <div>
+                <p class="eyebrow">PIXELSCAN</p>
+                <h2>Look beyond the obvious.</h2>
+                <p>
+                    A digital forensics project focused on more informed
+                    examination of digital content.
+                </p>
+            </div>
+
+            <a href="#inspect" class="primary-button">Choose a file</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="#home" class="logo footer-logo">
+                <span class="logo-icon">P</span>
+                PixelScan
+            </a>
+
+            <p>Digital forensics concept · Frontend prototype</p>
+        </div>
+    </footer>
+
+    <!-- Small script for displaying the selected filename -->
+    <script>
+        const fileInput = document.getElementById("fileInput");
+        const fileName = document.getElementById("fileName");
+
+        fileInput.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (!file) {
+                fileName.textContent = "";
+                return;
+            }
+
+            const size = file.size < 1024 * 1024
+                ? (file.size / 1024).toFixed(1) + " KB"
+                : (file.size / (1024 * 1024)).toFixed(2) + " MB";
+
+            fileName.textContent = file.name + " · " + size;
+        });
+    </script>
+
+</body>
+</html>
