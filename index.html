@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PixelScan helps investigate potential manipulation in images, videos, audio and documents.">
+
+    <title>PixelScan | Digital Forensics</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+
+            <a href="#home" class="logo" aria-label="PixelScan home">
+                <span class="logo-icon">P</span>
+                <span>PixelScan</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="nav-links">
+                ☰
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#analyze">Analyze</a>
+                <a href="#analyze" class="nav-cta">Try PixelScan ↗</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero section-padding" id="home">
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+                    <span class="eyebrow">
+                        ✦ DIGITAL FORENSICS, SIMPLIFIED
+                    </span>
+
+                    <h1>
+                        See beyond the
+                        <span>surface.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Investigate suspicious digital content with PixelScan.
+                        Explore potential manipulation across images, videos,
+                        audio and documents—all in one place.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#analyze" class="button button-primary">
+                            Analyze a File <span>↗</span>
+                        </a>
+
+                        <a href="#how-it-works" class="button button-secondary">
+                            How It Works
+                        </a>
+                    </div>
+
+                    <div class="trust-note">
+                        <span class="status-dot"></span>
+                        Built for transparent digital analysis
+                    </div>
+                </div>
+
+                <!-- VISUAL ANALYSIS PREVIEW -->
+                <div class="hero-visual">
+
+                    <div class="analysis-card">
+
+                        <div class="card-top">
+                            <div>
+                                <span class="small-label">PIXELSCAN</span>
+                                <h2>Analysis Preview</h2>
+                            </div>
+
+                            <span class="demo-badge">DEMO</span>
+                        </div>
+
+                        <div class="preview-art">
+                            <div class="scan-circle">
+                                <span class="scan-symbol">⌕</span>
+                            </div>
+
+                            <span class="scan-line"></span>
+
+                            <span class="scan-caption">
+                                DIGITAL CONTENT ANALYSIS
+                            </span>
+                        </div>
+
+                        <div class="preview-details">
+                            <div class="preview-icon">✳</div>
+
+                            <div>
+                                <strong>Multiple file formats</strong>
+                                <p>One place to investigate</p>
+                            </div>
+
+                            <span class="preview-arrow">↗</span>
+                        </div>
+
+                        <div class="preview-footer">
+                            <span>Images</span>
+                            <span>Video</span>
+                            <span>Audio</span>
+                            <span>Documents</span>
+                        </div>
+
+                    </div>
+
+                    <div class="floating-tag tag-top">
+                        <span>✦</span>
+                        Inspect digital evidence
+                    </div>
+
+                    <div class="floating-tag tag-bottom">
+                        <span class="status-dot"></span>
+                        Evidence-focused workflow
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FILE CATEGORIES -->
+        <section class="file-strip" aria-label="File categories">
+            <div class="container file-strip-inner">
+                <span>EXPLORE FOUR FILE CATEGORIES</span>
+                <span>▧ Images</span>
+                <span>▷ Videos</span>
+                <span>♫ Audio</span>
+                <span>▤ Documents</span>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features section-padding" id="features">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">WHAT PIXELSCAN OFFERS</span>
+
+                    <h2>
+                        Look closer.
+                        <span>Understand more.</span>
+                    </h2>
+
+                    <p>
+                        Different file types require different checks.
+                        Explore the analysis capabilities planned for PixelScan.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon purple-icon">▧</div>
+                        <span class="feature-number">01 / IMAGE</span>
+                        <h3>Image Forensics</h3>
+
+                        <p>
+                            Investigate potential editing, unusual image
+                            regions, metadata anomalies and manipulation signals.
+                        </p>
+
+                        <a href="#analyze">Explore image analysis ↗</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon pink-icon">▷</div>
+                        <span class="feature-number">02 / VIDEO</span>
+                        <h3>Video Inspection</h3>
+
+                        <p>
+                            Plan checks for suspicious frames, possible face
+                            manipulation and audio-video inconsistencies.
+                        </p>
+
+                        <a href="#analyze">Explore video analysis ↗</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon blue-icon">♫</div>
+                        <span class="feature-number">03 / AUDIO</span>
+                        <h3>Audio Verification</h3>
+
+                        <p>
+                            Investigate potential synthetic speech,
+                            suspicious edits and audio irregularities.
+                        </p>
+
+                        <a href="#analyze">Explore audio analysis ↗</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon orange-icon">▤</div>
+                        <span class="feature-number">04 / DOCUMENT</span>
+                        <h3>Document Checks</h3>
+
+                        <p>
+                            Examine formatting differences, text
+                            inconsistencies and available metadata.
+                        </p>
+
+                        <a href="#analyze">Explore document analysis ↗</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="workflow section-padding" id="how-it-works">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">A SIMPLE WORKFLOW</span>
+
+                    <h2>
+                        From upload to
+                        <span>insight.</span>
+                    </h2>
+
+                    <p>
+                        A straightforward workflow designed to make
+                        digital content investigation easier to understand.
+                    </p>
+                </div>
+
+                <div class="steps-grid">
+
+                    <article class="step-card">
+                        <span class="step-number">01</span>
+                        <h3>Upload</h3>
+                        <p>Select a supported digital file for inspection.</p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-number">02</span>
+                        <h3>Inspect</h3>
+                        <p>Run appropriate checks for the selected file type.</p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-number">03</span>
+                        <h3>Investigate</h3>
+                        <p>Review detected anomalies and their context.</p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-number">04</span>
+                        <h3>Review</h3>
+                        <p>Examine findings, limitations and the final report.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- UPLOAD INTERFACE -->
+        <section class="analyze-section section-padding" id="analyze">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">TRY THE INTERFACE</span>
+
+                    <h2>
+                        Your file.
+                        <span>A closer look.</span>
+                    </h2>
+
+                    <p>
+                        Select a file to preview the PixelScan upload workflow.
+                        AI detection is not connected in this prototype.
+                    </p>
+                </div>
+
+                <div class="upload-card">
+
+                    <div
+                        class="drop-zone"
+                        id="drop-zone"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Choose or drop a file to preview">
+
+                        <input
+                            type="file"
+                            id="file-input"
+                            accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt"
+                            hidden>
+
+                        <div class="upload-icon">↑</div>
+
+                        <h3>Drop your file here</h3>
+                        <p>or click to browse your device</p>
+
+                        <span class="file-types">
+                            Images · Videos · Audio · Documents
+                        </span>
+                    </div>
+
+                    <div class="selected-file" id="selected-file" hidden>
+                        <div class="selected-file-icon">▤</div>
+
+                        <div class="selected-file-info">
+                            <strong id="file-name">No file selected</strong>
+                            <span id="file-size"></span>
+                        </div>
+
+                        <button
+                            type="button"
+                            id="remove-file"
+                            class="remove-file"
+                            aria-label="Remove selected file">
+                            ✕
+                        </button>
+                    </div>
+
+                    <p class="upload-error" id="upload-error" role="alert"></p>
+
+                    <button
+                        type="button"
+                        class="button button-primary analyze-button"
+                        id="analyze-button"
+                        disabled>
+                        Preview Analysis Workflow →
+                    </button>
+
+                    <p class="privacy-note">
+                        Prototype only. Avoid uploading sensitive or confidential files.
+                    </p>
+
+                    <div
+                        class="demo-message"
+                        id="demo-message"
+                        role="status"
+                        aria-live="polite"
+                        hidden>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CALL TO ACTION -->
+        <section class="final-cta">
+            <div class="container final-cta-inner">
+
+                <div>
+                    <span class="eyebrow">
+                        DIGITAL TRUST STARTS WITH QUESTIONS
+                    </span>
+
+                    <h2>Don't just look. Investigate.</h2>
+
+                    <p>
+                        PixelScan aims to make digital manipulation
+                        analysis more transparent and accessible.
+                    </p>
+                </div>
+
+                <a href="#analyze" class="button button-light">
+                    Explore PixelScan ↗
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <a href="#home" class="logo footer-logo" aria-label="PixelScan home">
+                <span class="logo-icon">P</span>
+                <span>PixelScan</span>
+            </a>
+
+            <p>
+                A digital forensics project exploring manipulation detection.
+            </p>
+
+            <span class="copyright">
+                © 2026 PixelScan. Project prototype.
+            </span>
+
+        </div>
+    </footer>
+
+</body>
+</html>
