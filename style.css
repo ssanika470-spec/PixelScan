@@ -1,18 +1,32 @@
 
-/* ---------- Basic setup ---------- */
+/* =========================================================
+   PIXELSCAN — MAIN STYLESHEET
+   Theme: White, purple and dark plum
+   Layout: Responsive using CSS Grid and Flexbox
+   ========================================================= */
 
+
+/* ==================== 1. COLOUR VARIABLES ==================== */
 
 :root {
-    --blue-light: #EBD3F8;
-    --blue-soft: #DCC0ED;
-    --blue: #7A1CAC;
-    --blue-dark: #2E073F;
+    --purple-light: #EBD3F8;
+    --purple-soft: #DCC0ED;
+    --purple: #7A1CAC;
+    --purple-dark: #2E073F;
 
     --text: #2E073F;
     --muted: #71677A;
     --border: #E8DFED;
     --white: #FFFFFF;
+
+    --section-bg: #FCF9FE;
+    --error: #B42318;
+
+    --shadow: 0 18px 50px rgba(46, 7, 63, 0.08);
 }
+
+
+/* ==================== 2. GLOBAL RESET ==================== */
 
 * {
     box-sizing: border-box;
@@ -30,6 +44,7 @@ body {
     color: var(--text);
     background: var(--white);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -42,499 +57,700 @@ input {
     font: inherit;
 }
 
-.container {
-    width: min(1100px, calc(100% - 40px));
-    margin: 0 auto;
+button,
+a,
+label {
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* ---------- Navigation ---------- */
+img,
+svg {
+    max-width: 100%;
+}
+
+::selection {
+    color: var(--white);
+    background: var(--purple);
+}
+
+.container {
+    width: min(1100px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+
+/* ==================== 3. NAVIGATION ==================== */
 
 .navbar {
-    width: min(1100px, calc(100% - 40px));
-    margin: 0 auto;
-    min-height: 76px;
+    width: min(1200px, calc(100% - 40px));
+    min-height: 82px;
+    margin-inline: auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 28px;
+
+    border-bottom: 1px solid var(--border);
 }
 
 .logo {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 21px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    gap: 10px;
+
+    color: var(--purple-dark);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
     white-space: nowrap;
 }
 
 .logo-icon {
-    display: grid;
-    place-items: center;
-    width: 31px;
-    height: 31px;
-    border-radius: 7px;
-    color: var(--blue-dark);
-    background: var(--blue-light);
-    border: 1px solid var(--blue-soft);
-    font-size: 19px;
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--white);
+    background: var(--purple);
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: 800;
 }
 
 .navbar nav {
     display: flex;
     align-items: center;
-    gap: 28px;
+    justify-content: center;
+    gap: 30px;
 }
 
 .navbar nav a {
     color: var(--muted);
     font-size: 14px;
+    font-weight: 500;
+
     transition: color 0.2s ease;
 }
 
 .navbar nav a:hover {
-    color: var(--blue-dark);
+    color: var(--purple);
 }
 
 .nav-button {
-    padding: 10px 17px;
-    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 18px;
+
     color: var(--white);
-    background: var(--blue-dark);
-    font-size: 14px;
-    font-weight: 600;
+    background: var(--purple-dark);
+    border: 1px solid var(--purple-dark);
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .nav-button:hover {
-    background: var(--blue);
+    background: var(--purple);
+    border-color: var(--purple);
+    transform: translateY(-1px);
 }
 
-/* ---------- Hero section ---------- */
+
+/* ==================== 4. HERO SECTION ==================== */
 
 .hero {
-    min-height: 490px;
-    padding-top: 55px;
-    padding-bottom: 60px;
+    min-height: 590px;
+    padding-top: 78px;
+    padding-bottom: 78px;
 
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
     align-items: center;
-    gap: 55px;
+    gap: 64px;
+}
+
+.hero-content {
+    max-width: 500px;
 }
 
 .eyebrow {
-    color: var(--blue-dark);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.1px;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
+
+    color: var(--purple);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.5;
 }
 
 .hero h1 {
-    font-size: clamp(38px, 4vw, 53px);
-    line-height: 1.12;
-    letter-spacing: -2px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+
+    color: var(--purple-dark);
+    font-size: clamp(42px, 5vw, 61px);
+    font-weight: 800;
+    letter-spacing: -2.8px;
+    line-height: 1.08;
 }
 
 .hero h1 span,
 .section-heading h2 span,
 .workflow-intro h2 span {
-    color: var(--blue);
+    color: var(--purple);
 }
 
 .hero-description {
-    max-width: 440px;
+    max-width: 450px;
+    margin-bottom: 28px;
+
     color: var(--muted);
     font-size: 16px;
-    margin-bottom: 24px;
+    line-height: 1.9;
 }
 
 .hero-actions {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
     gap: 12px;
 }
 
 .primary-button,
 .secondary-button {
+    min-height: 46px;
+    padding: 12px 20px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 43px;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.2s ease, color 0.2s ease;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .primary-button {
     color: var(--white);
-    background: var(--blue);
+    background: var(--purple);
+    border-color: var(--purple);
 }
 
 .primary-button:hover {
-    background: var(--blue-dark);
+    background: var(--purple-dark);
+    border-color: var(--purple-dark);
+    transform: translateY(-2px);
 }
 
 .secondary-button {
-    color: var(--blue-dark);
-    border: 1px solid var(--blue-soft);
+    color: var(--purple-dark);
     background: var(--white);
+    border-color: var(--border);
 }
 
 .secondary-button:hover {
-    background: var(--blue-light);
+    color: var(--purple);
+    background: var(--section-bg);
+    border-color: var(--purple-soft);
 }
 
 .small-note {
     margin-top: 22px;
-    font-size: 12px;
     color: var(--muted);
+    font-size: 12px;
 }
 
-/* ---------- File inspection panel ---------- */
+
+/* ==================== 5. INSPECTION PANEL ==================== */
 
 .inspection-panel {
-    width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    min-width: 0;
     overflow: hidden;
+
     background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
 }
 
 .panel-header {
-    min-height: 49px;
+    min-height: 55px;
     padding: 0 22px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 
     border-bottom: 1px solid var(--border);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--blue-dark);
+
+    color: var(--purple-dark);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
 }
 
 .panel-label {
     color: var(--muted);
-    font-size: 10px;
-    letter-spacing: 0.6px;
+    font-size: 9px;
+    letter-spacing: 1.2px;
 }
 
+
+/* ==================== 6. FILE SELECTION AREA ==================== */
+
 .upload-area {
-    margin: 20px;
-    padding: 25px 18px;
+    padding: 38px 26px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     text-align: center;
-    border: 1px dashed var(--blue-soft);
-    border-radius: 7px;
-    background: #F8FBFE;
 }
 
 .upload-icon {
-    width: 54px;
-    height: 54px;
-    margin: 0 auto 13px;
-    display: grid;
-    place-items: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 20px;
 
-    border-radius: 50%;
-    background: var(--blue-light);
-    color: var(--blue-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--purple);
+    background: var(--purple-light);
+    border-radius: 16px;
 }
 
 .upload-icon svg {
-    width: 27px;
-    height: 27px;
+    width: 28px;
+    height: 28px;
 }
 
 .upload-area h2 {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 7px;
+    margin-bottom: 8px;
+
+    color: var(--purple-dark);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
-.upload-area > p:not(.file-note):not(.file-name) {
+.upload-description {
+    max-width: 330px;
+    margin-bottom: 22px;
+
     color: var(--muted);
     font-size: 13px;
-    margin-bottom: 16px;
+    line-height: 1.8;
 }
+
+
+/* Hide the native file input visually without removing it
+   from the keyboard tab order. */
 
 #fileInput {
     position: absolute;
+
     width: 1px;
     height: 1px;
+
     padding: 0;
     margin: -1px;
     overflow: hidden;
+
     clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+
     white-space: nowrap;
     border: 0;
 }
 
 .file-button {
-    display: inline-block;
-    padding: 10px 24px;
-    border-radius: 6px;
+    min-height: 44px;
+    padding: 11px 22px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     color: var(--white);
-    background: var(--blue);
+    background: var(--purple);
+    border: 1px solid var(--purple);
+    border-radius: 8px;
+
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .file-button:hover {
-    background: var(--blue-dark);
+    background: var(--purple-dark);
+    border-color: var(--purple-dark);
+    transform: translateY(-1px);
 }
 
+/* The input comes immediately before the label in the HTML. */
 #fileInput:focus-visible + .file-button {
-    outline: 3px solid var(--blue-soft);
-    outline-offset: 3px;
+    outline: 3px solid var(--purple-soft);
+    outline-offset: 4px;
 }
 
 .file-note {
+    margin-top: 16px;
+
     color: var(--muted);
     font-size: 11px;
-    margin-top: 13px;
+    line-height: 1.6;
 }
 
 .file-name {
-    color: var(--blue-dark);
+    max-width: 100%;
+    margin-top: 10px;
+
+    color: var(--purple-dark);
     font-size: 12px;
+    line-height: 1.6;
+
     overflow-wrap: anywhere;
-    margin-top: 8px;
 }
+
+.file-name:empty {
+    display: none;
+}
+
+.file-name.file-error {
+    color: var(--error);
+    font-weight: 600;
+}
+
+
+/* ==================== 7. SUPPORTED FORMATS ==================== */
 
 .supported-formats {
+    padding: 18px 16px;
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0 12px 20px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+
+    background: var(--section-bg);
+    border-top: 1px solid var(--border);
 }
 
-.supported-formats > div {
+.format-item {
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 7px;
-    color: var(--muted);
-    font-size: 12px;
-    border-right: 1px solid var(--border);
-}
+    gap: 8px;
 
-.supported-formats > div:last-child {
-    border-right: none;
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center;
 }
 
 .format-icon {
-    display: grid;
-    place-items: center;
-    width: 37px;
-    height: 37px;
+    width: 39px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 7px;
-    font-size: 10px;
-    font-weight: 700;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
 }
 
 .image-icon {
-    color: var(--blue-dark);
-    background: var(--blue-light);
+    color: #6B21A8;
+    background: #F1E3FC;
 }
 
 .video-icon {
-    color: #176DB5;
-    background: #D8EAFB;
+    color: #7E22CE;
+    background: #EDE0FA;
 }
 
 .audio-icon {
-    color: var(--blue-dark);
-    background: #BBDDF7;
+    color: #5B2A86;
+    background: #E9DDF4;
 }
 
 .doc-icon {
-    color: var(--white);
-    background: var(--blue);
+    color: #6D28D9;
+    background: #F3E8FF;
 }
 
-/* ---------- Features ---------- */
+
+/* ==================== 8. FEATURES SECTION ==================== */
 
 .features-section {
-    padding: 65px 0 72px;
-    background: #F7FAFD;
-    border-top: 1px solid #EDF2F7;
-    border-bottom: 1px solid #EDF2F7;
+    padding: 86px 0 92px;
+
+    background: var(--section-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .section-heading {
-    text-align: center;
-    margin-bottom: 35px;
+    max-width: 620px;
+    margin-bottom: 38px;
 }
 
 .section-heading .eyebrow {
-    margin-bottom: 8px;
+    margin-bottom: 13px;
 }
 
-.section-heading h2 {
-    font-size: clamp(27px, 3vw, 35px);
-    line-height: 1.3;
-    letter-spacing: -0.8px;
+.section-heading h2,
+.workflow-intro h2 {
+    margin-bottom: 15px;
+
+    color: var(--purple-dark);
+    font-size: clamp(30px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
 }
 
 .section-heading > p:last-child {
-    margin-top: 10px;
+    max-width: 540px;
+
     color: var(--muted);
     font-size: 14px;
+    line-height: 1.8;
 }
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 17px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
 }
 
 .feature-card {
-    padding: 23px 20px;
+    min-width: 0;
+    min-height: 225px;
+    padding: 25px 21px;
+
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    border-top: 3px solid var(--blue-soft);
+    border-radius: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
-.feature-card:nth-child(even) {
-    border-top-color: var(--blue);
+.feature-card:hover {
+    border-color: var(--purple-soft);
+    box-shadow: 0 12px 30px rgba(46, 7, 63, 0.06);
+    transform: translateY(-3px);
 }
 
 .feature-number {
-    display: inline-block;
-    color: var(--blue-dark);
-    background: var(--blue-light);
-    padding: 4px 8px;
-    border-radius: 4px;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--purple);
+    background: var(--purple-light);
+    border-radius: 8px;
+
     font-size: 11px;
-    font-weight: 700;
-    margin-bottom: 16px;
+    font-weight: 800;
 }
 
 .feature-card h3 {
-    font-size: 16px;
-    margin-bottom: 9px;
+    margin-bottom: 10px;
+
+    color: var(--purple-dark);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.4;
 }
 
 .feature-card p {
-    font-size: 13px;
     color: var(--muted);
-    line-height: 1.7;
+    font-size: 12px;
+    line-height: 1.9;
 }
 
-/* ---------- How it works ---------- */
+
+/* ==================== 9. WORKFLOW SECTION ==================== */
 
 .workflow-section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    align-items: start;
     gap: 80px;
-    padding-top: 75px;
-    padding-bottom: 75px;
+}
+
+.workflow-intro .eyebrow {
+    margin-bottom: 13px;
 }
 
 .workflow-intro h2 {
-    font-size: 34px;
-    line-height: 1.25;
-    letter-spacing: -0.8px;
-    margin-bottom: 18px;
+    max-width: 430px;
 }
 
 .workflow-intro > p:last-child {
-    max-width: 390px;
+    max-width: 420px;
+
     color: var(--muted);
     font-size: 14px;
+    line-height: 1.9;
 }
 
 .workflow-steps {
     display: flex;
     flex-direction: column;
-    gap: 27px;
 }
 
 .workflow-step {
+    padding: 21px 0;
+
     display: flex;
     align-items: flex-start;
-    gap: 17px;
+    gap: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.workflow-step:first-child {
+    padding-top: 0;
+}
+
+.workflow-step:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .step-number {
+    width: 36px;
+    height: 36px;
     flex-shrink: 0;
-    display: grid;
-    place-items: center;
-    width: 39px;
-    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--purple);
+    background: var(--purple-light);
     border-radius: 50%;
-    background: var(--blue-light);
-    color: var(--blue-dark);
-    font-weight: 700;
-    font-size: 14px;
+
+    font-size: 13px;
+    font-weight: 800;
 }
 
 .workflow-step h3 {
-    font-size: 15px;
     margin-bottom: 5px;
+
+    color: var(--purple-dark);
+    font-size: 15px;
+    font-weight: 800;
 }
 
 .workflow-step p {
     color: var(--muted);
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 1.8;
 }
 
-/* ---------- Closing section ---------- */
+
+/* ==================== 10. CLOSING SECTION ==================== */
 
 .closing-section {
+    margin-bottom: 80px;
+    padding: 38px 42px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 25px;
+    justify-content: space-between;
+    gap: 30px;
 
-    padding: 28px 32px;
-    margin-bottom: 45px;
-
-    background: var(--blue-light);
-    border: 1px solid #D2E7F8;
-    border-radius: 9px;
+    background: var(--purple-light);
+    border: 1px solid var(--purple-soft);
+    border-radius: 14px;
 }
 
-.closing-section .eyebrow {
-    margin-bottom: 5px;
+.closing-content {
+    max-width: 620px;
 }
 
-.closing-section h2 {
-    font-size: 24px;
-    margin-bottom: 5px;
+.closing-content .eyebrow {
+    margin-bottom: 10px;
 }
 
-.closing-section p:not(.eyebrow) {
+.closing-content h2 {
+    margin-bottom: 8px;
+
+    color: var(--purple-dark);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.25;
+}
+
+.closing-content > p:last-child {
     color: var(--muted);
     font-size: 13px;
+    line-height: 1.8;
 }
 
-.closing-section .primary-button {
-    flex-shrink: 0;
-}
 
-/* ---------- Footer ---------- */
+/* ==================== 11. FOOTER ==================== */
 
 .footer {
+    padding: 25px 0;
+
     border-top: 1px solid var(--border);
-    padding: 20px 0;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .footer-logo {
@@ -542,55 +758,104 @@ input {
 }
 
 .footer-logo .logo-icon {
-    width: 27px;
-    height: 27px;
-    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 15px;
 }
 
 .footer-content > p {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 11px;
+    text-align: right;
 }
 
-/* ---------- Responsive layout ---------- */
 
-@media (max-width: 850px) {
+/* ==================== 12. KEYBOARD ACCESSIBILITY ==================== */
+
+a:focus-visible,
+button:focus-visible,
+label:focus-visible {
+    outline: 3px solid var(--purple-soft);
+    outline-offset: 4px;
+}
+
+a,
+label,
+button {
+    touch-action: manipulation;
+}
+
+
+/* ==================== 13. TABLET RESPONSIVENESS ==================== */
+
+@media (max-width: 900px) {
+
     .hero {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding-top: 40px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 32px;
+        padding-top: 65px;
+        padding-bottom: 65px;
     }
 
-    .hero-content {
-        max-width: 600px;
+    .hero h1 {
+        font-size: clamp(39px, 5.5vw, 51px);
+        letter-spacing: -2px;
     }
 
-    .inspection-panel {
-        max-width: 600px;
+    .hero-description {
+        font-size: 14px;
     }
 
     .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .workflow-section {
-        grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 42px;
+    }
+
+    .closing-section {
+        padding: 32px;
     }
 }
 
-@media (max-width: 600px) {
+
+/* ==================== 14. MOBILE RESPONSIVENESS ==================== */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
     .navbar {
+        width: calc(100% - 32px);
+        min-height: auto;
+        padding: 17px 0;
+
+        display: flex;
         flex-wrap: wrap;
-        padding: 15px 0;
-        gap: 14px;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo-icon {
+        width: 31px;
+        height: 31px;
     }
 
     .navbar nav {
-        order: 3;
         width: 100%;
-        justify-content: space-between;
-        gap: 12px;
+        order: 3;
+
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
     .navbar nav a {
@@ -599,69 +864,197 @@ input {
 
     .nav-button {
         padding: 9px 12px;
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .hero {
-        padding-top: 30px;
-        padding-bottom: 42px;
+        min-height: auto;
+        padding-top: 55px;
+        padding-bottom: 65px;
+
+        grid-template-columns: minmax(0, 1fr);
+        gap: 42px;
+    }
+
+    .hero-content {
+        max-width: none;
     }
 
     .hero h1 {
-        font-size: 40px;
+        font-size: clamp(42px, 11vw, 56px);
+        letter-spacing: -2px;
     }
 
     .hero-description {
+        max-width: 500px;
         font-size: 14px;
+    }
+
+    .inspection-panel {
+        width: 100%;
+    }
+
+    .upload-area {
+        padding: 32px 18px 25px;
+    }
+
+    .upload-area h2 {
+        font-size: 18px;
+    }
+
+    .supported-formats {
+        padding: 16px 8px;
+        gap: 5px;
+    }
+
+    .format-item {
+        font-size: 10px;
+    }
+
+    .format-icon {
+        width: 34px;
+        height: 29px;
+        font-size: 8px;
+    }
+
+    .features-section {
+        padding: 65px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .section-heading h2,
+    .workflow-intro h2 {
+        font-size: 31px;
+        letter-spacing: -1px;
+    }
+
+    .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .feature-card {
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .feature-number {
+        margin-bottom: 16px;
+    }
+
+    .workflow-section {
+        padding-top: 68px;
+        padding-bottom: 68px;
+
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .workflow-step {
+        gap: 14px;
+    }
+
+    .closing-section {
+        margin-bottom: 55px;
+        padding: 27px 23px;
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .closing-content h2 {
+        font-size: 27px;
+    }
+
+    .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .footer-content > p {
+        text-align: left;
+        line-height: 1.7;
+    }
+}
+
+
+/* ==================== 15. SMALL MOBILE SCREENS ==================== */
+
+@media (max-width: 360px) {
+
+    .container,
+    .navbar {
+        width: calc(100% - 24px);
+    }
+
+    .navbar {
+        gap: 12px;
+    }
+
+    .navbar nav {
+        gap: 13px;
+    }
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+    .nav-button {
+        padding: 8px 9px;
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-actions a {
+        width: 100%;
     }
 
     .panel-header {
         padding: 0 14px;
     }
 
+    .panel-label {
+        font-size: 8px;
+    }
+
     .upload-area {
-        margin: 12px;
-        padding: 22px 12px;
+        padding-inline: 13px;
     }
 
     .supported-formats {
-        padding-left: 5px;
-        padding-right: 5px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 17px;
+    }
+}
+
+
+/* ==================== 16. REDUCED MOTION ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
     }
 
-    .supported-formats > div {
-        font-size: 10px;
-    }
-
-    .features-section {
-        padding: 45px 0;
-    }
-
-    .feature-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-card {
-        padding: 20px;
-    }
-
-    .workflow-section {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-
-    .workflow-intro h2 {
-        font-size: 30px;
-    }
-
-    .closing-section {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 23px;
-    }
-
-    .footer-content {
-        align-items: flex-start;
-        flex-direction: column;
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
