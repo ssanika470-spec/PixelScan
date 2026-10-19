@@ -1,311 +1,169 @@
-<script src="script.js" defer></script>
 <!DOCTYPE html>
-<html lang="en">
+<!--
+  PixelScan - index.html
+  Week 1: responsive landing page (header, nav, hero, features, footer)
+  Week 2: accessible modal component (see js/modal.js)
+
+  Structure is semantic: <header>, <nav>, <main>, <section>, <article>, <footer>.
+  The page is fully readable without JavaScript (progressive enhancement):
+  JS only adds the menu toggle and the file inspector.
+-->
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PixelScan frontend prototype for inspecting digital files.">
+  <title>PixelScan | Digital Forensics</title>
 
-    <meta name="description"
-        content="PixelScan is a digital forensics frontend prototype for examining images, videos, audio and documents.">
+  <!-- Swap "no-js" for "js" as early as possible so CSS can style JS-only UI. -->
+  <script>document.documentElement.className = "js";</script>
 
-    <title>PixelScan | Digital Forensics</title>
-
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Load JavaScript after the HTML has been parsed -->
-    <script src="script.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-
-    <!-- ==================== NAVIGATION ==================== -->
-    <header class="navbar">
-        <a href="#home" class="logo" aria-label="PixelScan home">
-            <span class="logo-icon">P</span>
-            <span>PixelScan</span>
-        </a>
-
-        <nav aria-label="Main navigation">
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How it works</a>
-        </nav>
-
-        <a href="#inspect" class="nav-button">Inspect a file</a>
-    </header>
-
-
-    <main>
-
-        <!-- ==================== HERO SECTION ==================== -->
-        <section class="hero container" id="home">
-
-            <div class="hero-content">
-                <p class="eyebrow">DIGITAL FORENSICS, SIMPLIFIED</p>
-
-                <h1>
-                    Look closer.
-                    <br>
-                    <span>Think deeper.</span>
-                </h1>
-
-                <p class="hero-description">
-                    Digital content can hide more than meets the eye.
-                    PixelScan aims to help examine images, videos, audio
-                    and documents for signs of possible manipulation.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#inspect" class="primary-button">
-                        Inspect a file
-                    </a>
-
-                    <a href="#how-it-works" class="secondary-button">
-                        How it works
-                    </a>
-                </div>
-
-                <p class="small-note">
-                    Simple file inspection. Clear, understandable results.
-                </p>
-            </div>
-
-
-            <!-- ==================== FILE INSPECTION PANEL ==================== -->
-            <section class="inspection-panel" id="inspect"
-                aria-labelledby="inspection-title">
-
-                <div class="panel-header">
-                    <span>PIXELSCAN</span>
-                    <span class="panel-label">FILE INSPECTION</span>
-                </div>
-
-                <div class="upload-area">
-
-                    <div class="upload-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" stroke-linejoin="round">
-
-                            <path d="M12 16V4"></path>
-                            <path d="m7 9 5-5 5 5"></path>
-                            <path d="M20 16.5v2A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-2"></path>
-                        </svg>
-                    </div>
-
-                    <h2 id="inspection-title">Select a file to inspect</h2>
-
-                    <p class="upload-description">
-                        Choose an image, video, audio file or document
-                        from your device.
-                    </p>
-
-                    <!--
-                        Keep the input before the label so the CSS
-                        focus-visible selector works correctly.
-                    -->
-                    <input
-                        type="file"
-                        id="fileInput"
-                        accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt"
-                        aria-describedby="file-note fileName"
-                    >
-
-                    <label for="fileInput" class="file-button">
-                        Choose a file
-                    </label>
-
-                    <p class="file-note" id="file-note">
-                        File selection only · No upload to a server
-                    </p>
-
-                    <!-- JavaScript displays the selected file or an error here -->
-                    <p id="fileName" class="file-name" aria-live="polite"></p>
-                </div>
-
-
-                <!-- Supported file categories -->
-                <div class="supported-formats" aria-label="Supported file categories">
-
-                    <div class="format-item">
-                        <span class="format-icon image-icon" aria-hidden="true">IMG</span>
-                        <span>Images</span>
-                    </div>
-
-                    <div class="format-item">
-                        <span class="format-icon video-icon" aria-hidden="true">VID</span>
-                        <span>Video</span>
-                    </div>
-
-                    <div class="format-item">
-                        <span class="format-icon audio-icon" aria-hidden="true">AUD</span>
-                        <span>Audio</span>
-                    </div>
-
-                    <div class="format-item">
-                        <span class="format-icon doc-icon" aria-hidden="true">DOC</span>
-                        <span>Documents</span>
-                    </div>
-
-                </div>
-            </section>
-
-        </section>
-
-
-        <!-- ==================== FEATURES SECTION ==================== -->
-        <section class="features-section" id="features">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p class="eyebrow">WHAT PIXELSCAN EXPLORES</p>
-
-                    <h2>
-                        Different formats.
-                        <span>One purpose.</span>
-                    </h2>
-
-                    <p>
-                        A single place to examine different types of
-                        digital content.
-                    </p>
-                </div>
-
-
-                <div class="feature-grid">
-
-                    <article class="feature-card">
-                        <span class="feature-number">01</span>
-                        <h3>Image inspection</h3>
-                        <p>
-                            Explore image properties and potential signs
-                            of editing or manipulation.
-                        </p>
-                    </article>
-
-                    <article class="feature-card">
-                        <span class="feature-number">02</span>
-                        <h3>Video inspection</h3>
-                        <p>
-                            Examine video properties and investigate
-                            possible inconsistencies across frames.
-                        </p>
-                    </article>
-
-                    <article class="feature-card">
-                        <span class="feature-number">03</span>
-                        <h3>Audio inspection</h3>
-                        <p>
-                            Review audio properties and explore
-                            potential irregularities in recordings.
-                        </p>
-                    </article>
-
-                    <article class="feature-card">
-                        <span class="feature-number">04</span>
-                        <h3>Document inspection</h3>
-                        <p>
-                            Review document metadata and look for
-                            properties that may need further examination.
-                        </p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ==================== HOW IT WORKS ==================== -->
-        <section class="workflow-section container" id="how-it-works">
-
-            <div class="workflow-intro">
-                <p class="eyebrow">HOW IT WORKS</p>
-
-                <h2>
-                    A closer look at
-                    <span>digital evidence.</span>
-                </h2>
-
-                <p>
-                    PixelScan is designed around a straightforward process:
-                    select digital content, examine available evidence,
-                    and understand the findings.
-                </p>
-            </div>
-
-
-            <div class="workflow-steps">
-
-                <article class="workflow-step">
-                    <span class="step-number">1</span>
-                    <div>
-                        <h3>Select a file</h3>
-                        <p>
-                            Choose the digital content you want to examine.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="workflow-step">
-                    <span class="step-number">2</span>
-                    <div>
-                        <h3>Examine the evidence</h3>
-                        <p>
-                            Review file properties and, when implemented,
-                            potential signs of manipulation.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="workflow-step">
-                    <span class="step-number">3</span>
-                    <div>
-                        <h3>Review the findings</h3>
-                        <p>
-                            Understand the observations and their limitations.
-                        </p>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-
-        <!-- ==================== CLOSING SECTION ==================== -->
-        <section class="closing-section container">
-            <div class="closing-content">
-                <p class="eyebrow">PIXELSCAN</p>
-
-                <h2>Look beyond the obvious.</h2>
-
-                <p>
-                    A digital forensics project focused on more informed
-                    examination of digital content.
-                </p>
-            </div>
-
-            <a href="#inspect" class="primary-button">
-                Choose a file
-            </a>
-        </section>
-
-    </main>
-
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
-        <div class="container footer-content">
-
-            <a href="#home" class="logo footer-logo">
-                <span class="logo-icon">P</span>
-                <span>PixelScan</span>
-            </a>
-
-            <p>Digital forensics concept · Frontend prototype</p>
-
+  <!-- Skip link: lets keyboard users jump past the navigation (WCAG 2.4.1) -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER + NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="navbar">
+      <a href="#home" class="logo" aria-label="PixelScan home">
+        <span class="logo-icon" aria-hidden="true">P</span><span>PixelScan</span>
+      </a>
+
+      <!-- Hamburger button: visible only on small screens and only when JS runs -->
+      <button type="button" class="nav-toggle" id="navToggle"
+              aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav id="siteNav" class="site-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#inspect" class="button">Inspect a file</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero container" id="home" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">Digital forensics, simplified</p>
+        <h1 id="hero-title">Look closer.<br><span>Think deeper.</span></h1>
+        <p class="hero-description">
+          Digital content can hide more than meets the eye. PixelScan helps you
+          examine images, video, audio and documents for file details that may
+          deserve a closer look.
+        </p>
+        <div class="hero-actions">
+          <a href="#inspect" class="button">Inspect a file</a>
+          <a href="#how-it-works" class="button button-outline">How it works</a>
         </div>
-    </footer>
+        <p class="small-note">Simple file inspection. Clear, understandable results.</p>
+      </div>
 
+      <!-- File inspection panel (logic lives in js/file-inspector.js) -->
+      <section class="panel" id="inspect" aria-labelledby="inspect-title">
+        <div class="panel-header"><span>PIXELSCAN</span><span class="muted">FILE INSPECTION</span></div>
+
+        <div class="upload-area">
+          <h2 id="inspect-title">Select a file to inspect</h2>
+          <p class="muted">Images, video, audio, PDF, DOC, DOCX or TXT. Max 20 MB.</p>
+          <label class="visually-hidden" for="fileInput">Choose a file to inspect</label>
+          <input type="file" id="fileInput" aria-describedby="file-note"
+                 accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt">
+          <p class="muted small" id="file-note">Files stay on this device in this frontend demo.</p>
+        </div>
+
+        <div class="selected-file" aria-labelledby="selected-heading">
+          <h3 id="selected-heading">Selected file</h3>
+          <div class="selected-file-body">
+            <div id="filePreview" class="file-preview" aria-hidden="true"><span class="file-icon">FILE</span></div>
+            <div class="selected-file-info">
+              <p id="selectedFileName" class="file-name">No file selected</p>
+              <p id="selectedFileType">Type: —</p>
+              <p id="selectedFileSize">Size: —</p>
+              <p id="fileStatus" role="status" aria-live="polite">Choose a file to see its details.</p>
+            </div>
+          </div>
+          <div class="file-actions">
+            <button type="button" id="inspectButton" class="button button-outline" disabled>Inspect File</button>
+            <button type="button" id="analyzeButton" class="button" disabled>Analyze Selected File</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ============ FEATURE HIGHLIGHTS ============ -->
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <p class="eyebrow">What PixelScan explores</p>
+        <h2 id="features-title">Different formats. <span>One purpose.</span></h2>
+        <div class="feature-grid">
+          <article class="card"><span class="card-number">01</span><h3>Image inspection</h3><p>Explore image properties and potential signs of editing.</p></article>
+          <article class="card"><span class="card-number">02</span><h3>Video inspection</h3><p>Examine video properties and possible inconsistencies.</p></article>
+          <article class="card"><span class="card-number">03</span><h3>Audio inspection</h3><p>Review audio properties and irregularities in recordings.</p></article>
+          <article class="card"><span class="card-number">04</span><h3>Document inspection</h3><p>Review metadata and properties that may need a closer look.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="workflow container" id="how-it-works" aria-labelledby="workflow-title">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2 id="workflow-title">A closer look at <span>digital evidence.</span></h2>
+        <p class="muted">Select digital content, examine the available evidence, and understand the findings.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="step-number" aria-hidden="true">1</span><div><h3>Select a file</h3><p>Choose the content you want to examine.</p></div></li>
+        <li><span class="step-number" aria-hidden="true">2</span><div><h3>Examine the evidence</h3><p>Review file properties and details.</p></div></li>
+        <li><span class="step-number" aria-hidden="true">3</span><div><h3>Review the findings</h3><p>Understand the observations and their limits.</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a href="#home" class="logo"><span class="logo-icon" aria-hidden="true">P</span><span>PixelScan</span></a>
+      <p class="muted small">Digital forensics concept · Frontend prototype</p>
+    </div>
+  </footer>
+
+  <!-- ============ WEEK 2 COMPONENT: ACCESSIBLE MODAL ============
+       Markup contract for js/modal.js:
+       - role="dialog" + aria-modal="true" + aria-labelledby (title) + aria-describedby
+       - [data-modal-close] on any element that should close it
+       - Hidden by the `hidden` attribute (works even if CSS fails to load) -->
+  <div id="analysisModal" class="modal" role="dialog" aria-modal="true"
+       aria-labelledby="modalTitle" aria-describedby="modalDescription" hidden>
+    <div class="modal-content">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">&times;</button>
+      <h2 id="modalTitle">Inspect File</h2>
+      <p id="modalDescription">Review your selected file details below.</p>
+      <div id="fileDetails" class="file-details"></div>
+      <p id="modalStatus" role="status" aria-live="polite">Ready.</p>
+      <div id="progressTrack" class="progress-track" role="progressbar" aria-label="Demo analysis progress"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden>
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <p id="analysisResult" class="result"></p>
+      <button type="button" id="startAnalysis" class="button button-block">Start Demo Analysis</button>
+    </div>
+  </div>
+
+  <noscript><p class="noscript-note">JavaScript is turned off, so file inspection is unavailable. The rest of the page still works.</p></noscript>
+
+  <!-- Plain scripts (not ES modules) so the site also works when opened via file://.
+       Order matters: shared components first, page logic last. -->
+  <script src="js/menu.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/file-inspector.js"></script>
 </body>
 </html>

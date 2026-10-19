@@ -1,0 +1,173 @@
+/* ==========================================================================
+   PixelScan - styles.css
+   Approach: MOBILE-FIRST. Base styles target phones (<600px); min-width
+   media queries then add layout for tablets (>=600px) and desktops (>=900px).
+   Layout tools: Flexbox for rows/alignment, CSS Grid for page sections.
+   Sections: 1 Tokens · 2 Base · 3 Layout · 4 Header/Nav · 5 Buttons
+             6 Hero · 7 Panel · 8 Features · 9 Workflow · 10 Footer
+             11 Modal (Week 2) · 12 Media queries · 13 Accessibility
+   ========================================================================== */
+
+/* 1. DESIGN TOKENS ------------------------------------------------------- */
+:root {
+  --purple: #6335a6;        /* ~8:1 contrast on white (WCAG AAA) */
+  --purple-dark: #482477;
+  --purple-pale: #f7f3fc;
+  --ink: #211832;
+  --muted: #514960;         /* ~8.5:1 contrast on white */
+  --border: #ded3ef;
+  --success: #176b4d;
+  --error: #a32626;
+  --radius: 10px;
+  --tap: 44px;              /* minimum touch target size (WCAG 2.5.5) */
+}
+
+/* 2. BASE ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; } /* offset for sticky header */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 1rem; line-height: 1.6; color: var(--ink); background: #fff;
+}
+h1, h2, h3 { line-height: 1.2; }
+h2 span, h1 span { color: var(--purple); }
+button, input { font: inherit; }
+a { color: inherit; }
+.muted { color: var(--muted); }
+.small { font-size: .875rem; }
+.eyebrow { margin: 0; color: var(--purple); font-size: .8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+
+/* 3. LAYOUT -------------------------------------------------------------- */
+/* Centered column: 16px side gutters on phones, capped at 960px on desktop */
+.container { width: min(960px, calc(100% - 32px)); margin-inline: auto; }
+
+/* 4. HEADER / NAVIGATION ------------------------------------------------- */
+.site-header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #eee8f5; }
+.navbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; width: min(960px, calc(100% - 32px)); margin-inline: auto; padding: 12px 0; }
+.logo { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 1.3rem; font-weight: 800; }
+.logo-icon { display: grid; place-items: center; width: 36px; height: 36px; color: #fff; background: var(--purple); border-radius: 10px; }
+
+/* Mobile menu: a full-width stacked list that sits under the logo row */
+.site-nav { display: flex; flex-direction: column; width: 100%; gap: 4px; }
+.site-nav a { display: flex; align-items: center; min-height: var(--tap); padding: 0 8px; text-decoration: none; font-weight: 600; color: var(--muted); }
+.site-nav a:hover { color: var(--purple); }
+.site-nav a.button { justify-content: center; color: #fff; }
+
+/* The hamburger only exists when JS is on; without JS the menu is always shown. */
+.nav-toggle { display: none; }
+.js .nav-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: var(--tap); height: var(--tap); padding: 0 11px; background: #fff; border: 1.5px solid var(--border); border-radius: 8px; cursor: pointer; }
+.nav-toggle-bar { display: block; height: 2.5px; background: var(--ink); border-radius: 2px; transition: transform .2s, opacity .2s; }
+/* Animate the three bars into an "X" while the menu is open */
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+.js .site-nav { display: none; }                 /* collapsed by default on mobile */
+.js .site-nav.is-open { display: flex; }
+
+/* 5. BUTTONS ------------------------------------------------------------- */
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); padding: 10px 18px; border: 1.7px solid var(--purple); border-radius: 8px; background: var(--purple); color: #fff; font-weight: 700; text-decoration: none; cursor: pointer; }
+.button:hover:not(:disabled) { background: var(--purple-dark); border-color: var(--purple-dark); }
+.button-outline { background: #fff; color: var(--purple); }
+.button-outline:hover:not(:disabled) { background: var(--purple-pale); color: var(--purple-dark); }
+.button-block { width: 100%; }
+.button:disabled { opacity: .55; cursor: not-allowed; }
+
+/* 6. HERO (single column on phones; two columns from 900px) -------------- */
+.hero { display: grid; gap: 28px; padding-block: 36px 48px; }
+h1 { margin: 8px 0 16px; font-size: clamp(2rem, 7vw, 3.1rem); letter-spacing: -1px; }
+.hero-description { max-width: 460px; font-size: 1.05rem; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.small-note { margin-top: 14px; color: var(--muted); font-size: .85rem; }
+
+/* 7. FILE INSPECTION PANEL ----------------------------------------------- */
+.panel { padding: 16px; border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 12px 32px rgba(48, 26, 77, .08); }
+.panel-header { display: flex; justify-content: space-between; gap: 8px; padding-bottom: 12px; border-bottom: 1px solid #eee8f5; color: var(--purple); font-size: .8rem; font-weight: 800; letter-spacing: .7px; }
+.upload-area { margin-top: 16px; padding: 16px; text-align: center; background: var(--purple-pale); border: 1.7px dashed #9d80c9; border-radius: 12px; }
+.upload-area h2 { margin: 0 0 4px; font-size: 1.3rem; }
+#fileInput { display: block; width: 100%; max-width: 360px; margin: 14px auto 10px; padding: 8px; background: #fff; border: 1px solid var(--border); border-radius: 8px; }
+.selected-file { margin-top: 16px; padding: 14px; border: 1.7px solid var(--border); border-radius: 12px; }
+.selected-file h3 { margin: 0 0 10px; font-size: 1.1rem; }
+.selected-file-body { display: flex; flex-direction: column; gap: 12px; padding: 12px; background: var(--purple-pale); border-radius: 10px; }
+.file-preview { display: flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 80px; height: 80px; overflow: hidden; background: #eee5fa; border: 1px solid var(--border); border-radius: 8px; }
+.file-preview img { width: 100%; height: 100%; object-fit: contain; }
+.file-icon { font-size: .8rem; font-weight: 800; color: var(--purple-dark); }
+.selected-file-info { min-width: 0; overflow-wrap: anywhere; }   /* long file names must wrap, not overflow */
+.selected-file-info p { margin: 0 0 4px; font-size: .9rem; }
+.file-name { font-size: 1.05rem !important; font-weight: 800; }
+#fileStatus { font-weight: 700; color: var(--muted); }
+#fileStatus.success { color: var(--success); }
+#fileStatus.error { color: var(--error); }
+.file-actions { display: grid; gap: 10px; margin-top: 14px; }
+
+/* 8. FEATURES (1 column -> 2 columns -> 4 columns) ----------------------- */
+.features { padding: 48px 0; background: #faf8fd; }
+.features h2, .workflow h2 { margin: 6px 0 20px; font-size: clamp(1.6rem, 5vw, 2.2rem); }
+.feature-grid { display: grid; gap: 14px; }
+.card { padding: 18px; background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+.card h3 { margin: 6px 0; font-size: 1.1rem; }
+.card p { margin: 0; color: var(--muted); font-size: .9rem; }
+.card-number { color: var(--purple); font-weight: 800; }
+
+/* 9. WORKFLOW ------------------------------------------------------------ */
+.workflow { display: grid; gap: 20px; padding-block: 48px; }
+.steps { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.steps li { display: flex; gap: 14px; }
+.step-number { display: grid; place-items: center; flex: 0 0 36px; height: 36px; border-radius: 50%; background: var(--purple); color: #fff; font-weight: 800; }
+.steps h3 { margin: 0; font-size: 1.1rem; }
+.steps p { margin: 4px 0 0; color: var(--muted); }
+
+/* 10. FOOTER ------------------------------------------------------------- */
+.site-footer { padding: 20px 0; border-top: 1px solid #eee8f5; }
+.footer-content { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.footer-content p { margin: 0; }
+.noscript-note { margin: 0; padding: 12px; text-align: center; background: #fff4d6; }
+
+/* 11. MODAL COMPONENT (Week 2) -------------------------------------------
+   Visibility is controlled ONLY by the [hidden] attribute, so the modal
+   stays hidden even if this stylesheet fails or a script errors out.      */
+.modal[hidden] { display: none; }
+.modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(25, 15, 40, .62); animation: fade-in .2s ease; }
+.modal-content { position: relative; width: min(480px, 100%); max-height: 90vh; overflow-y: auto; padding: 24px; background: #fff; border-radius: 16px; box-shadow: 0 18px 60px rgba(0, 0, 0, .25); animation: pop-in .2s ease; }
+.modal-content h2 { margin: 0 0 8px; padding-right: 40px; font-size: 1.5rem; }
+.modal-close { position: absolute; top: 10px; right: 10px; width: var(--tap); height: var(--tap); border: 0; background: transparent; color: var(--ink); font-size: 1.8rem; line-height: 1; cursor: pointer; border-radius: 8px; }
+.modal-close:hover { background: var(--purple-pale); }
+.file-details { margin: 14px 0; padding: 12px; background: var(--purple-pale); border-radius: 8px; overflow-wrap: anywhere; }
+.file-details p { margin: 0 0 4px; font-size: .9rem; }
+#modalStatus { font-weight: 700; }
+.progress-track[hidden] { display: none; }
+.progress-track { height: 10px; overflow: hidden; background: #e9e0f4; border-radius: 8px; }
+.progress-fill { width: 0; height: 100%; background: var(--purple); transition: width .2s ease; }
+.result { margin: 14px 0; padding: 12px; background: var(--purple-pale); border-radius: 8px; font-size: .9rem; }
+.modal-open { overflow: hidden; }   /* added to <body> by modal.js: stops background scrolling */
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+
+/* 12. RESPONSIVE BREAKPOINTS ---------------------------------------------
+   600px  ~ large phones / small tablets
+   900px  ~ tablets landscape / laptops: full nav bar, 2-column hero       */
+@media (min-width: 600px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .file-actions { grid-template-columns: 1fr 1fr; }
+  .selected-file-body { flex-direction: row; align-items: flex-start; }
+  .footer-content { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+@media (min-width: 900px) {
+  /* Menu becomes a horizontal bar; hamburger disappears */
+  .js .nav-toggle { display: none; }
+  .site-nav, .js .site-nav { display: flex; flex-direction: row; align-items: center; width: auto; gap: 20px; }
+  .site-nav a { padding: 0; }
+  .hero { grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; padding-block: 56px 64px; }
+  .feature-grid { grid-template-columns: repeat(4, 1fr); }
+  .workflow { grid-template-columns: 1fr 1fr; gap: 40px; padding-block: 64px; }
+}
+
+/* 13. ACCESSIBILITY ------------------------------------------------------ */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; left: 8px; top: -60px; z-index: 2000; padding: 10px 16px; background: var(--ink); color: #fff; border-radius: 6px; }
+.skip-link:focus { top: 8px; }   /* appears only when focused by keyboard */
+:focus-visible { outline: 3px solid #24113f; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
