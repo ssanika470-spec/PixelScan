@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "name": "holiday-photo.jpg",
+    "type": "Image",
+    "sizeKB": 2480,
+    "date": "2026-10-11",
+    "status": "Clear"
+  },
+  {
+    "id": 2,
+    "name": "invoice-scan.png",
+    "type": "Image",
+    "sizeKB": 910,
+    "date": "2026-10-05",
+    "status": "Review"
+  },
+  {
+    "id": 3,
+    "name": "id-card.jpeg",
+    "type": "Image",
+    "sizeKB": 1320,
+    "date": "2026-10-13",
+    "status": "Mismatch"
+  },
+  {
+    "id": 4,
+    "name": "interview.mp4",
+    "type": "Video",
+    "sizeKB": 15800,
+    "date": "2026-10-21",
+    "status": "Clear"
+  },
+  {
+    "id": 5,
+    "name": "clip-final.mov",
+    "type": "Video",
+    "sizeKB": 18200,
+    "date": "2026-10-02",
+    "status": "Review"
+  },
+  {
+    "id": 6,
+    "name": "demo-reel.webm",
+    "type": "Video",
+    "sizeKB": 9400,
+    "date": "2026-10-03",
+    "status": "Clear"
+  },
+  {
+    "id": 7,
+    "name": "voicemail.mp3",
+    "type": "Audio",
+    "sizeKB": 1850,
+    "date": "2026-10-27",
+    "status": "Review"
+  },
+  {
+    "id": 8,
+    "name": "podcast-ep3.wav",
+    "type": "Audio",
+    "sizeKB": 12100,
+    "date": "2026-10-18",
+    "status": "Clear"
+  },
+  {
+    "id": 9,
+    "name": "call-record.m4a",
+    "type": "Audio",
+    "sizeKB": 3300,
+    "date": "2026-10-04",
+    "status": "Clear"
+  },
+  {
+    "id": 10,
+    "name": "contract.pdf",
+    "type": "Document",
+    "sizeKB": 640,
+    "date": "2026-10-12",
+    "status": "Clear"
+  },
+  {
+    "id": 11,
+    "name": "report-q3.docx",
+    "type": "Document",
+    "sizeKB": 212,
+    "date": "2026-10-19",
+    "status": "Review"
+  },
+  {
+    "id": 12,
+    "name": "notes.txt",
+    "type": "Document",
+    "sizeKB": 4,
+    "date": "2026-10-02",
+    "status": "Clear"
+  },
+  {
+    "id": 13,
+    "name": "statement.pdf",
+    "type": "Document",
+    "sizeKB": 1180,
+    "date": "2026-10-17",
+    "status": "Mismatch"
+  },
+  {
+    "id": 14,
+    "name": "resume.doc",
+    "type": "Document",
+    "sizeKB": 96,
+    "date": "2026-10-07",
+    "status": "Clear"
+  }
+]

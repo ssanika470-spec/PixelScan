@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scan dashboard – PixelScan</title>
+  <meta name="description" content="Dashboard of file inspections: filter, sort and chart results from a static JSON dataset.">
+  <meta name="theme-color" content="#5b2d9e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b2d9e'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.min.css">
+  <script>document.documentElement.className="js"</script>
+  <script src="js/main.min.js" defer></script>
+  <script src="js/dashboard.min.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="index.html" aria-label="PixelScan home">
+        <svg viewBox="0 0 32 32" width="36" height="36" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="7" fill="#5b2d9e"/><text x="16" y="23" font-size="20" font-weight="700" text-anchor="middle" fill="#fff" font-family="Arial">P</text></svg>
+        PixelScan
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><span aria-hidden="true">☰</span> Menu</button>
+      <nav id="site-nav" class="nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#how-it-works">How it works</a></li>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a class="nav-cta" href="index.html#inspector">Inspect a file</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-title">
+      <p class="eyebrow">Scan dashboard</p>
+      <h1>Inspection <span class="accent">overview</span></h1>
+      <p class="lead">Sample results loaded from <code>data/scans.json</code>, plus any files you analyzed on this device.</p>
+    </div>
+
+    <p id="status" role="status" aria-live="polite">Loading data…</p>
+    <noscript><p class="error">This dashboard needs JavaScript to load its data.</p></noscript>
+
+    <ul class="stats" id="stats" aria-label="Summary"></ul>
+
+    <section class="panel" aria-labelledby="chart-title">
+      <h2 id="chart-title">Files by type</h2>
+      <div class="chart" id="chart" role="img" aria-label="Bar chart of files by type"></div>
+      <p class="note">The table below holds the same data in full.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="table-title">
+      <h2 id="table-title">All inspections</h2>
+      <form class="filters" id="filters" role="search" onsubmit="return false">
+        <label>Search by name<input type="search" id="f-q" autocomplete="off"></label>
+        <label>Type
+          <select id="f-type"><option value="">All types</option><option>Image</option><option>Video</option><option>Audio</option><option>Document</option></select>
+        </label>
+        <label>Result
+          <select id="f-status"><option value="">All results</option><option>Clear</option><option>Review</option><option>Mismatch</option></select>
+        </label>
+      </form>
+      <p id="count" aria-live="polite"></p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Inspections table, scrollable">
+        <table id="table">
+          <caption class="sr-only">File inspections. Column headers are buttons that sort the table.</caption>
+          <thead><tr>
+            <th scope="col" data-key="name" aria-sort="none"><button type="button">File</button></th>
+            <th scope="col" data-key="type" aria-sort="none"><button type="button">Type</button></th>
+            <th scope="col" data-key="sizeKB" aria-sort="none"><button type="button">Size (KB)</button></th>
+            <th scope="col" data-key="date" aria-sort="none"><button type="button">Date</button></th>
+            <th scope="col" data-key="status" aria-sort="none"><button type="button">Result</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-inner"><p><strong>PixelScan</strong> – Look closer. Think deeper.</p><p><a href="index.html">Back to home</a></p></div></footer>
+</body>
+</html>
